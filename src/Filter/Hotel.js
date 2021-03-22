@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import style from '../CSS/hotel.module.css';
 const Hotel = ({ courort, setHotel, setHotelid }) => {
     const [list, setList] = useState(null);
     const [search, setSearch] = useState('');
@@ -20,9 +19,9 @@ const Hotel = ({ courort, setHotel, setHotelid }) => {
         <section>
             <p>Выберите отель:</p>
             <input type='text' onChange={e => setSearch(e.target.value)} onClick={() => { setSearch(''); setDisplay(!display); Fetch() }} placeholder='Выберите отель...' value={search} />
-            {display && (<div className={style.hotels_list}>
+            {display && (<div className='filter_list'>
                 {list?.filter((res) => {
-                    if (search == '') {
+                    if (search === '') {
                         return res
                     } else {
                         if (res?.Name?.toLowerCase().includes(search.toLowerCase())) {

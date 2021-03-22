@@ -1,3 +1,8 @@
 body {
   padding: 0 2vw;
 }
+
+.filter_list {
+  max-height: 20vh;
+  overflow-y: scroll;
+}

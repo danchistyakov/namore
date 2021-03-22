@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 const Courort = ({ countryid, setCourortid, setCourort }) => {
     const [list, setList] = useState(null);
-    const [search, setSearch] = useState('Белек');
+    const [search, setSearch] = useState('Анталия');
     const [display, setDisplay] = useState(false);
 
     const Fetch = async () => {
@@ -20,9 +20,9 @@ const Courort = ({ countryid, setCourortid, setCourort }) => {
         <section>
             <p>Выберите курорт:</p>
             <input type='text' onChange={e => setSearch(e.target.value)} onClick={() => { setSearch(''); setDisplay(!display); Fetch() }} placeholder='Выберите курорт...' value={search} />
-            {display && (<div>
+            {display && (<div className='filter_list'>
                 {list?.filter((res) => {
-                    if (search == '') {
+                    if (search === '') {
                         return res
                     } else {
                         if (res.Name.toLowerCase().includes(search.toLowerCase())) {
@@ -31,7 +31,7 @@ const Courort = ({ countryid, setCourortid, setCourort }) => {
                     }
                 }).map((res, key) => (
                     <div key={key}>
-                        <p key={key} onClick={() => { setChoice(res.Name, res.Id); setCourortid(res.Id); setCourort(res.Name); }}>{res.Name}</p>
+                        <p key={key} onClick={() => { setChoice(res.name, res.Id); setSearch(res.Name); setCourortid(res.Id); setCourort(res.Name); }}>{res.Name}</p>
                     </div>
                 ))}
             </div>
