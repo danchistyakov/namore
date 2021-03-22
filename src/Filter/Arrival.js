@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Cities from '../JSON/Cities.json';
 import Aeroports from '../JSON/Aeroports.json';
 
-const Arrival = ({ country, countryiata, setAiriata }) => {
+const Arrival = ({ country, countryiata, setAiriata, style }) => {
 
     const [search, setSearch] = useState('Анталия');
     const [display, setDisplay] = useState(false);
@@ -18,7 +18,7 @@ const Arrival = ({ country, countryiata, setAiriata }) => {
     return (
         <section>
             <p>Выберите аэропорт прибытия:</p>
-            <input type='text' onChange={e => setSearch(e.target.value)} onClick={() => { setSearch(''); setDisplay(!display) }} placeholder='Выберите аэропорт прибытия...' value={search} />
+            <input type='text' className={style.filter_input} onChange={e => setSearch(e.target.value)} onClick={() => { setSearch(''); setDisplay(!display) }} placeholder='Выберите аэропорт прибытия...' value={search} />
             {display && (<div className='filter_list'>
                 {arrcity?.filter((res) => {
                     if (search === '' && res.country_code === countryiata) {

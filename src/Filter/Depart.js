@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Aeroports from '../JSON/Aeroports.json';
 
-const Depart = ({ setDepartid }) => {
+const Depart = ({ setDepartid, style }) => {
     const [list, setList] = useState(null);
     const [airports, setAirports] = useState(JSON.parse(JSON.stringify(Aeroports)));
     const [search, setSearch] = useState('Москва');
@@ -33,7 +33,7 @@ const Depart = ({ setDepartid }) => {
     return (
         <section>
             <p>Выберите город вылета:</p>
-            <input type='text' onChange={e => setSearch(e.target.value)} onClick={() => { setSearch(''); setDisplay(!display) }} placeholder='Выберите город вылета...' value={search}></input>
+            <input type='text' className={style.filter_input} onChange={e => setSearch(e.target.value)} onClick={() => { setSearch(''); setDisplay(!display) }} placeholder='Выберите город вылета...' value={search}></input>
             {display && (<div className='filter_list'>
                 {list?.filter((res) => {
                     if (search === '') {

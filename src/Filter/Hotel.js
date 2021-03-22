@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-const Hotel = ({ courort, setHotel, setHotelid }) => {
+const Hotel = ({ courort, setHotel, setHotelid, style }) => {
     const [list, setList] = useState(null);
     const [search, setSearch] = useState('');
     const [display, setDisplay] = useState(false);
@@ -18,7 +18,7 @@ const Hotel = ({ courort, setHotel, setHotelid }) => {
     return (
         <section>
             <p>Выберите отель:</p>
-            <input type='text' onChange={e => setSearch(e.target.value)} onClick={() => { setSearch(''); setDisplay(!display); Fetch() }} placeholder='Выберите отель...' value={search} />
+            <input type='text' className={style.filter_input} onChange={e => setSearch(e.target.value)} onClick={() => { setSearch(''); setDisplay(!display); Fetch() }} placeholder='Выберите отель...' value={search} />
             {display && (<div className='filter_list'>
                 {list?.filter((res) => {
                     if (search === '') {

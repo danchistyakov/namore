@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Country = ({ departid, setCountryid, setCountry, setCountryiata }) => {
+const Country = ({ departid, setCountryid, setCountry, setCountryiata, style }) => {
     const [list, setList] = useState(null);
     const [search, setSearch] = useState('Турция');
     const [display, setDisplay] = useState(false);
@@ -24,7 +24,7 @@ const Country = ({ departid, setCountryid, setCountry, setCountryiata }) => {
     return (
         <section>
             <p>Выберите страну:</p>
-            <input type='text' onChange={e => setSearch(e.target.value)} onClick={() => { setSearch(''); setDisplay(!display); Fetch() }} placeholder='Выберите страну прибытия...' value={search} />
+            <input type='text' className={style.filter_input} onChange={e => setSearch(e.target.value)} onClick={() => { setSearch(''); setDisplay(!display); Fetch() }} placeholder='Выберите страну прибытия...' value={search} />
             {display && (<div className='filter_list'>
                 {list?.filter((res) => {
                     if (search === '') {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Courort = ({ countryid, setCourortid, setCourort }) => {
+const Courort = ({ countryid, setCourortid, setCourort, style }) => {
     const [list, setList] = useState(null);
     const [search, setSearch] = useState('Анталия');
     const [display, setDisplay] = useState(false);
@@ -19,7 +19,7 @@ const Courort = ({ countryid, setCourortid, setCourort }) => {
     return (
         <section>
             <p>Выберите курорт:</p>
-            <input type='text' onChange={e => setSearch(e.target.value)} onClick={() => { setSearch(''); setDisplay(!display); Fetch() }} placeholder='Выберите курорт...' value={search} />
+            <input type='text' className={style.filter_input} onChange={e => setSearch(e.target.value)} onClick={() => { setSearch(''); setDisplay(!display); Fetch() }} placeholder='Выберите курорт...' value={search} />
             {display && (<div className='filter_list'>
                 {list?.filter((res) => {
                     if (search === '') {
