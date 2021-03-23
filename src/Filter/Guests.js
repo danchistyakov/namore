@@ -9,18 +9,24 @@ const Guests = ({ style }) => {
 
     return (
         <div>
-            <p>Взрослых</p>
-            <div><span onClick={() => setAdult(adult - 1)}>-</span><input onChange={e => setAdult(e.target.value)} value={adult}></input><span onClick={() => setAdult(adult + 1)}>+</span></div>
-            <p>Детей</p>
-            <div><span onClick={() => setBaby(baby - 1)}>-</span><input onChange={e => setBaby(e.target.value)} value={baby}></input><span onClick={() => setBaby(baby + 1)}>+</span></div>
-            <p>Возраст детей</p>
-            <div><span onClick={() => setAge(age - 1)}>-</span><input onChange={e => setAge(e.target.value)} onClick={() => setDisplay(!display)} value={age}></input><span onClick={() => setAge(age + 1)}>+</span></div>
-            {display && (<div className='filter_list'>
-                {listage?.map((agelist, key) => (
-                    <p onClick={() => { setAge(agelist); setDisplay(!display) }}>{agelist}</p>
-                ))}
-            </div>)}
-        </div >
+            <p className={style.option_title}>Взрослых</p>
+            <div className={style.options_section}>
+                <div><span onClick={() => adult > 0 && setAdult(adult - 1)}>-</span><input className={style.filter_input_guests} onChange={e => setAdult(e.target.value)} value={adult}></input><span onClick={() => setAdult(adult + 1)}>+</span></div>
+            </div>
+            <p className={style.option_title}>Детей</p>
+            <div className={style.options_section}>
+                <div><span onClick={() => baby > 0 && setBaby(baby - 1)}>-</span><input className={style.filter_input_guests} onChange={e => setBaby(e.target.value)} value={baby}></input><span onClick={() => setBaby(baby + 1)}>+</span></div>
+            </div>
+            {baby > 0 && (<div><p className={style.option_title}>Возраст детей</p>
+                <div className={style.options_section}>
+                    <div><span onClick={() => age > 0 && setAge(age - 1)}>-</span><input className={style.filter_input_guests} onChange={e => setAge(e.target.value)} onClick={() => setDisplay(!display)} value={age}></input><span onClick={() => setAge(age + 1)}>+</span></div>
+                    {display && (<div className={style.filter_input_guests}>
+                        {listage?.map((agelist, key) => (
+                            <p className={style.option_var} onClick={() => { setAge(agelist); setDisplay(!display) }}>{agelist}</p>
+                        ))}
+                    </div>)}</div></div>)}
+
+        </div>
     )
 }
 

@@ -30,10 +30,12 @@ const Home = () => {
                 <Country departid={departid} setCountryid={setCountryid} setCountry={setCountry} setCountryiata={setCountryiata} style={style} />
                 <Courort countryid={countryid} setCourort={setCourort} setCourortid={setCourortid} style={style} />
             </section>
-            <Hotel courort={courort} setHotel={setHotel} setHotelid={setHotelid} style={style} />
             <Guests style={style} />
             <section>
                 <Date setStartdate={setStartdate} setEnddate={setEnddate} style={style} />
+            </section>
+            <section>
+                <Hotel courort={courort} setHotel={setHotel} setHotelid={setHotelid} style={style} />
                 <Arrival country={country} countryiata={countryiata} setAiriata={setAiriata} style={style} />
             </section>
         </section>

@@ -3,10 +3,43 @@
     justify-content: space-around;
 }
 
-.filter_input {
-    border-radius: 20px;
-    padding: 1vw;
+.option_title {
+    font-size: 1.2vw;
+}
+
+.option_var {
+    font-size: 1vw;
+}
+
+.filter_input, .filter_input_hotel, .filter_input_location, .filter_input_guests {
     border: none;
     outline: 0;
+    font-size: 1vw;
+    width: 90%;
+    padding: .6vw 0;
+}
+
+.options_section {
+    border-radius: 20px;
+    padding: 0 .8vw;
+    border: none;
+    outline: 0;
+    font-size: 1vw;
+    max-height: 40vh;
+    overflow-y: scroll;
     box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 10%);
+}
+
+.filter_input_hotel {
+    width: 26vw;
+}
+
+.filter_input_location {
+    width: 18vw;
+}
+
+.filter_input_guests {
+    width: 1vw;
+    text-align: center;
+    margin: 0 1vw;
 }

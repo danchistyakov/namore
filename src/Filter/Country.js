@@ -23,24 +23,26 @@ const Country = ({ departid, setCountryid, setCountry, setCountryiata, style }) 
     }
     return (
         <div>
-            <p>Выберите страну:</p>
-            <input type='text' className={style.filter_input} onChange={e => setSearch(e.target.value)} onClick={() => { setSearch(''); setDisplay(!display); Fetch() }} placeholder='Выберите страну прибытия...' value={search} />
-            {display && (<div className='filter_list'>
-                {list?.filter((res) => {
-                    if (search === '') {
-                        return res
-                    } else {
-                        if (res.Name.toLowerCase().includes(search.toLowerCase())) {
+            <p className={style.option_title}>Выберите страну:</p>
+            <div className={style.options_section}>
+                <input type='text' className={style.filter_input_location} onChange={e => setSearch(e.target.value)} onClick={() => { setSearch(''); setDisplay(!display); Fetch() }} placeholder='Выберите страну прибытия...' value={search} />
+                {display && (<div>
+                    {list?.filter((res) => {
+                        if (search === '') {
                             return res
+                        } else {
+                            if (res.Name.toLowerCase().includes(search.toLowerCase())) {
+                                return res
+                            }
                         }
-                    }
-                }).map((res, key) => (
-                    <div key={key}>
-                        <p key={key} onClick={() => { setChoice(res.Name, res.Id); setCountry(res.Name); Iata(res.Name) }}>{res.Name}</p>
-                    </div>
-                ))}
+                    }).map((res, key) => (
+                        <div key={key}>
+                            <p className={style.option_var} key={key} onClick={() => { setChoice(res.Name, res.Id); setCountry(res.Name); Iata(res.Name) }}>{res.Name}</p>
+                        </div>
+                    ))}
+                </div>
+                )}
             </div>
-            )}
         </div>
     )
 }

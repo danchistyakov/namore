@@ -17,8 +17,8 @@ const Arrival = ({ country, countryiata, setAiriata, style }) => {
     }
     return (
         <div>
-            <p>Выберите аэропорт прибытия:</p>
-            <input type='text' className={style.filter_input} onChange={e => setSearch(e.target.value)} onClick={() => { setSearch(''); setDisplay(!display) }} placeholder='Выберите аэропорт прибытия...' value={search} />
+            <p className={style.option_title}>Выберите аэропорт прибытия:</p>
+            <input type='text' className={style.filter_input_location} onChange={e => setSearch(e.target.value)} onClick={() => { setSearch(''); setDisplay(!display) }} placeholder='Выберите аэропорт прибытия...' value={search} />
             {display && (<div className='filter_list'>
                 {arrcity?.filter((res) => {
                     if (search === '' && res.country_code === countryiata) {
@@ -30,14 +30,14 @@ const Arrival = ({ country, countryiata, setAiriata, style }) => {
                     }
                 }).map((res, key) => (
                     <div key={key}>
-                        <p key={key} onClick={() => { setSearch(res.name); setCity(res.name); }}>Аэропорт в {res.cases.pr}</p>
+                        <p className={style.option_var} key={key} onClick={() => { setSearch(res.name); setCity(res.name); }}>Аэропорт в {res.cases.pr}</p>
                         {arrair.filter((res) => {
                             if (res.city_code === cityiata) {
                                 console.log(res.name_translations.en);
                                 return res;
                             }
                         }).map((res, key) => (
-                            <p onClick={() => { setSearch(res.name_translations.en); setAiriata(res.code); }}>{res.name_translations.en}</p>
+                            <p className={style.option_var} onClick={() => { setSearch(res.name_translations.en); setAiriata(res.code); }}>{res.name_translations.en}</p>
                         ))
                         }
                     </div>

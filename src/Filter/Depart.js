@@ -32,31 +32,33 @@ const Depart = ({ setDepartid, style }) => {
     }
     return (
         <div>
-            <p>Выберите город вылета:</p>
-            <input type='text' className={style.filter_input} onChange={e => setSearch(e.target.value)} onClick={() => { setSearch(''); setDisplay(!display) }} placeholder='Выберите город вылета...' value={search}></input>
-            {display && (<div className='filter_list'>
-                {list?.filter((res) => {
-                    if (search === '') {
-                        return res
-                    } else {
-                        if (res.Name.toLowerCase().includes(search.toLowerCase())) {
+            <p className={style.option_title}>Выберите город вылета:</p>
+            <div className={style.options_section}>
+                <input type='text' className={style.filter_input} onChange={e => setSearch(e.target.value)} onClick={() => { setSearch(''); setDisplay(!display) }} placeholder='Выберите город вылета...' value={search}></input>
+                {display && (<div>
+                    {list?.filter((res) => {
+                        if (search === '') {
                             return res
-                        }
-                    }
-                }).map((res, key) => (
-                    <div key={key}>
-                        <p key={key} onClick={() => { setSearch(res.Name); setId(res.Id); setDepartid(res.Id); setAirport(res.Name); Visibility() }}>{res.Name}</p>
-                        {visible && (airports.filter((result) => {
-                            if (result.flightable === true && result.city_code === iata && result.iata_type === 'airport') {
-                                return result
+                        } else {
+                            if (res.Name.toLowerCase().includes(search.toLowerCase())) {
+                                return res
                             }
-                        }).map((res, key) => (
-                            <p>{res.name_translations.en}</p>
-                        )))}
-                    </div>
-                ))}
+                        }
+                    }).map((res, key) => (
+                        <div key={key}>
+                            <p className={style.option_var} key={key} onClick={() => { setSearch(res.Name); setId(res.Id); setDepartid(res.Id); setAirport(res.Name); Visibility() }}>{res.Name}</p>
+                            {visible && (airports.filter((result) => {
+                                if (result.flightable === true && result.city_code === iata && result.iata_type === 'airport') {
+                                    return result
+                                }
+                            }).map((res, key) => (
+                                <p className={style.option_var}>{res.name_translations.en}</p>
+                            )))}
+                        </div>
+                    ))}
+                </div>
+                )}
             </div>
-            )}
         </div>
     )
 }

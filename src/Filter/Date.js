@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const Date = ({ setStartdate, setEnddate }) => {
+const Date = ({ setStartdate, setEnddate, style }) => {
 
     useEffect(() => {
         const Fetch = async () => {
@@ -14,9 +14,9 @@ const Date = ({ setStartdate, setEnddate }) => {
 
     return (
         <div>
-            <p>Дата вылета:</p>
+            <p className={style.option_title}>Дата вылета:</p>
             <input type="date" onChange={e => setStartdate(e.target.value)}></input>
-            <p>Дата прилёта:</p>
+            <p className={style.option_title}>Дата прилёта:</p>
             <input type="date" onChange={e => setEnddate(e.target.value)}></input>
         </div>
     )

@@ -35,8 +35,8 @@ const Aeroport = ({ setArriata }) => {
     }
     return (
         <div>
-            <p>Выберите аэропорт:</p>
-            <input type='text' onChange={e => setSearch(e.target.value)} onClick={() => { setSearch(''); setDisplay(true); Fetch() }} placeholder='Выберите страну прибытия...' value={search} />
+            <p className={style.option_title}>Выберите аэропорт:</p>
+            <input type='text' className={style.filter_input_location} onChange={e => setSearch(e.target.value)} onClick={() => { setSearch(''); setDisplay(true); Fetch() }} placeholder='Выберите страну прибытия...' value={search} />
             {display && (<div className='filter_list'>
                 {list?.filter((res) => {
                     if (search == '') {
@@ -48,7 +48,7 @@ const Aeroport = ({ setArriata }) => {
                     }
                 }).map((res, key) => (
                     <div key={key}>
-                        <p key={key} onClick={() => { setChoice(res.name, res.code) }}>{res.name}</p>
+                        <p className={style.option_var} key={key} onClick={() => { setChoice(res.name, res.code) }}>{res.name}</p>
                     </div>
                 ))}
             </div>
