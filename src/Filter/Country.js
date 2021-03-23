@@ -22,7 +22,7 @@ const Country = ({ departid, setCountryid, setCountry, setCountryiata, style }) 
         setDisplay(false);
     }
     return (
-        <section>
+        <div>
             <p>Выберите страну:</p>
             <input type='text' className={style.filter_input} onChange={e => setSearch(e.target.value)} onClick={() => { setSearch(''); setDisplay(!display); Fetch() }} placeholder='Выберите страну прибытия...' value={search} />
             {display && (<div className='filter_list'>
@@ -41,7 +41,7 @@ const Country = ({ departid, setCountryid, setCountry, setCountryiata, style }) 
                 ))}
             </div>
             )}
-        </section>
+        </div>
     )
 }
 

@@ -17,7 +17,7 @@ const Courort = ({ countryid, setCourortid, setCourort, style }) => {
         setDisplay(false);
     }
     return (
-        <section>
+        <div>
             <p>Выберите курорт:</p>
             <input type='text' className={style.filter_input} onChange={e => setSearch(e.target.value)} onClick={() => { setSearch(''); setDisplay(!display); Fetch() }} placeholder='Выберите курорт...' value={search} />
             {display && (<div className='filter_list'>
@@ -36,7 +36,7 @@ const Courort = ({ countryid, setCourortid, setCourort, style }) => {
                 ))}
             </div>
             )}
-        </section>
+        </div>
     )
 }
 

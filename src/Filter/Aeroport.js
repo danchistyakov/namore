@@ -34,7 +34,7 @@ const Aeroport = ({ setArriata }) => {
         setDisplay(false);
     }
     return (
-        <section>
+        <div>
             <p>Выберите аэропорт:</p>
             <input type='text' onChange={e => setSearch(e.target.value)} onClick={() => { setSearch(''); setDisplay(true); Fetch() }} placeholder='Выберите страну прибытия...' value={search} />
             {display && (<div className='filter_list'>
@@ -53,7 +53,7 @@ const Aeroport = ({ setArriata }) => {
                 ))}
             </div>
             )}
-        </section>
+        </div>
     )
 }
 

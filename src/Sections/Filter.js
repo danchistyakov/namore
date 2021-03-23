@@ -5,6 +5,7 @@ import Courort from '../Filter/Courort';
 import Sletat from '../Filter/Sletat';
 import Date from '../Filter/Date';
 import Hotel from '../Filter/Hotel';
+import Guests from '../Filter/Guests';
 import Arrival from '../Filter/Arrival';
 import style from '../CSS/Filter/filter.module.css'
 const Home = () => {
@@ -21,15 +22,20 @@ const Home = () => {
     const [departiata, setDepartIata] = useState(null);
     const [countryiata, setCountryiata] = useState('TR');
     const [airiata, setAiriata] = useState(null);
-    
+
     return (
-        <section>
-            <Depart setDepartid={setDepartid} setDepartIata={setDepartIata} style={style} />
-            <Country departid={departid} setCountryid={setCountryid} setCountry={setCountry} setCountryiata={setCountryiata} style={style} />
-            <Courort countryid={countryid} setCourort={setCourort} setCourortid={setCourortid} style={style} />
-            <Date setStartdate={setStartdate} setEnddate={setEnddate} style={style} />
+        <section className={style.filter_section}>
+            <section>
+                <Depart setDepartid={setDepartid} setDepartIata={setDepartIata} style={style} />
+                <Country departid={departid} setCountryid={setCountryid} setCountry={setCountry} setCountryiata={setCountryiata} style={style} />
+                <Courort countryid={countryid} setCourort={setCourort} setCourortid={setCourortid} style={style} />
+            </section>
             <Hotel courort={courort} setHotel={setHotel} setHotelid={setHotelid} style={style} />
-            <Arrival country={country} countryiata={countryiata} setAiriata={setAiriata} style={style} />
+            <Guests style={style} />
+            <section>
+                <Date setStartdate={setStartdate} setEnddate={setEnddate} style={style} />
+                <Arrival country={country} countryiata={countryiata} setAiriata={setAiriata} style={style} />
+            </section>
         </section>
     )
 }

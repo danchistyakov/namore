@@ -16,7 +16,7 @@ const Hotel = ({ courort, setHotel, setHotelid, style }) => {
         console.log(id)
     }
     return (
-        <section>
+        <div>
             <p>Выберите отель:</p>
             <input type='text' className={style.filter_input} onChange={e => setSearch(e.target.value)} onClick={() => { setSearch(''); setDisplay(!display); Fetch() }} placeholder='Выберите отель...' value={search} />
             {display && (<div className='filter_list'>
@@ -35,7 +35,7 @@ const Hotel = ({ courort, setHotel, setHotelid, style }) => {
                 ))}
             </div>
             )}
-        </section>
+        </div>
     )
 }
 

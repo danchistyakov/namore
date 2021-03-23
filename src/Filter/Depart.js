@@ -31,7 +31,7 @@ const Depart = ({ setDepartid, style }) => {
         setDisplay(true);
     }
     return (
-        <section>
+        <div>
             <p>Выберите город вылета:</p>
             <input type='text' className={style.filter_input} onChange={e => setSearch(e.target.value)} onClick={() => { setSearch(''); setDisplay(!display) }} placeholder='Выберите город вылета...' value={search}></input>
             {display && (<div className='filter_list'>
@@ -57,7 +57,7 @@ const Depart = ({ setDepartid, style }) => {
                 ))}
             </div>
             )}
-        </section>
+        </div>
     )
 }
 
