@@ -34,7 +34,7 @@ const Depart = ({ setDepartid, style }) => {
         <div>
             <p className={style.option_title}>Выберите город вылета:</p>
             <div className={style.options_section}>
-                <input type='text' className={style.filter_input} onChange={e => setSearch(e.target.value)} onClick={() => { setSearch(''); setDisplay(!display) }} placeholder='Выберите город вылета...' value={search}></input>
+                <input type='text' className={style.filter_input} onChange={e => setSearch(e.target.value)} onClick={() => { setSearch(''); setDisplay(!display); setVisible(false); }} placeholder='Выберите город вылета...' value={search}></input>
                 {display && (<div>
                     {list?.filter((res) => {
                         if (search === '') {
@@ -52,7 +52,7 @@ const Depart = ({ setDepartid, style }) => {
                                     return result
                                 }
                             }).map((res, key) => (
-                                <p className={style.option_var}>{res.name_translations.en}</p>
+                                <p className={style.option_var} onClick={() => { setDisplay(false); setDepartIata(res.code) }}>{res.name_translations.en}</p>
                             )))}
                         </div>
                     ))}

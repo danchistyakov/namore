@@ -19,7 +19,7 @@ const Hotel = ({ courort, setHotel, setHotelid, style }) => {
         <div>
             <p className={style.option_title}>Выберите отель:</p>
             <div className={style.options_section}>
-                <input type='text' className={style.filter_input_location} onChange={e => setSearch(e.target.value)} onClick={() => { setSearch(''); setDisplay(!display); Fetch() }} placeholder='Выберите отель...' value={search} />
+                <input type='text' className={style.filter_input_hotel} onChange={e => setSearch(e.target.value)} onClick={() => { setSearch(''); setDisplay(!display); Fetch() }} placeholder='Выберите отель...' value={search} />
                 {display && (<div>
                     {list?.filter((res) => {
                         if (search === '') {
