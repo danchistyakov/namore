@@ -44,3 +44,19 @@
     text-align: center;
     margin: 0 1vw;
 }
+
+@media screen and (max-width: 767px) {
+
+    .filter_section {
+        display: block;
+    }
+    .filter_input, .filter_input_hotel, .filter_input_location, .filter_input_guests {
+        font-size: 4vw;
+    }
+    .option_title {
+      font-size: 5vw;
+    }
+    .option_var {
+        font-size: 3.5vw;
+    }
+  }
