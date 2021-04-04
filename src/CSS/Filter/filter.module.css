@@ -1,6 +1,7 @@
 .filter_section {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .option_title {
@@ -39,24 +40,42 @@
     width: 18vw;
 }
 
+.amount_section {
+    display: flex
+}
+
 .filter_input_guests {
     width: 1vw;
     text-align: center;
     margin: 0 1vw;
 }
 
-@media screen and (max-width: 767px) {
+.find_button_section {
+    padding-top: 2vw;
+    width: 95%;
+}
 
+@media screen and (max-width: 767px) {
     .filter_section {
         display: block;
+        padding: 2vw;
     }
-    .filter_input, .filter_input_hotel, .filter_input_location, .filter_input_guests {
+    .filter_input, .filter_input_hotel, .filter_input_location {
+        font-size: 4vw;
+        padding: 2vw;
+        width: 90%;
+    }
+    .filter_input_guests {
+        font-size: 4vw;
+        width: 15%;
+    }
+    .amount_button {
         font-size: 4vw;
     }
     .option_title {
-      font-size: 5vw;
+        font-size: 5vw;
     }
     .option_var {
         font-size: 3.5vw;
     }
-  }
+}

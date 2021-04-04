@@ -6,9 +6,10 @@ import Sletat from '../Filter/Sletat';
 import Date from '../Filter/Date';
 import Hotel from '../Filter/Hotel';
 import Guests from '../Filter/Guests';
+import Stars from '../Filter/Stars';
 import Arrival from '../Filter/Arrival';
 import style from '../CSS/Filter/filter.module.css'
-const Home = () => {
+const Home = ({ setReady }) => {
     const [departid, setDepartid] = useState(832);
     const [depart, setDepart] = useState('Москва');
     const [countryid, setCountryid] = useState(119);
@@ -30,14 +31,18 @@ const Home = () => {
                 <Country departid={departid} setCountryid={setCountryid} setCountry={setCountry} setCountryiata={setCountryiata} style={style} />
                 <Courort countryid={countryid} setCourort={setCourort} setCourortid={setCourortid} style={style} />
             </section>
-            <Guests style={style} />
+            <Date setStartdate={setStartdate} setEnddate={setEnddate} style={style} />
             <section>
-                <Date setStartdate={setStartdate} setEnddate={setEnddate} style={style} />
+                <Guests style={style} />
+                <Stars />
             </section>
             <section>
                 <Hotel courort={courort} setHotel={setHotel} setHotelid={setHotelid} style={style} />
                 <Arrival country={country} countryiata={countryiata} setAiriata={setAiriata} style={style} />
             </section>
+            <div className={style.find_button_section}>
+                <button onClick={() => setReady(true)}>Найти</button>
+            </div>
         </section>
     )
 }

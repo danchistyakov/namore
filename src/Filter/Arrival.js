@@ -17,7 +17,7 @@ const Arrival = ({ country, countryiata, setAiriata, style }) => {
             <div className={style.options_section}>
 
                 <input type='text' className={style.filter_input_location} onChange={e => setSearch(e.target.value)} onClick={() => { setSearch(''); setDisplay(!display); setVisible(false) }} placeholder='Выберите аэропорт прибытия...' value={search} />
-                {display && (<div className='filter_list'>
+                {display && (<div>
                     {arrcity?.filter((res) => {
                         if (search === '' && res.country_code === countryiata) {
                             return res
